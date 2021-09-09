@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+    <title>Traversing</title>
+</head>
+<body > 
+    <table class="center">
+        <thead>
+          <tr>
+            <th colspan="2" style="background-color: rgba(219, 219, 219, 0.973);">Property Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Property Image</td>
+            <td>
+                <div id="data">
+                <input type="file" id="browse" name="fileupload" style="display: none" onChange="Handlechange();"/>
+                 <input type="text" id="filename"  style="width:150px; height:15px; font-size:15px;" readonly="true"/>
+                 <input type="button" value="browse" id="fakeBrowse" onclick="HandleBrowseClick();"/>
+                 <select id="mySelect" onchange="myFunction()">
+                  <option value="pImage">Primary Image</option>
+                  <option value="sImage">Secondary Image</option>
+                </select> 
+                <span class="remove" style="color:grey;" >remove</span>
+            </div>
+               
+                <p class="add" style="color:rgb(97, 96, 96);" >Add Another</p>
+            </td>
+          
+          </tr>
+        </tbody>
+      </table>
+   
+</body>
+
+ <!-- style  -->
+<style>
+     table.center {
+    margin-left:auto; 
+    margin-right:auto;
+    margin-top: 20%;
+    margin-bottom: 20%;
+  }
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 5px;
+    text-align: left;
+  }
+  
+  </style>
+
+  <!-- Script -->
+  <script src="jquery.js"></script>
+    <script language="JavaScript" type="text/javascript">
+        function HandleBrowseClick()
+        {
+            var fileinput = document.getElementById("browse");
+            fileinput.click();
+        }
+        function Handlechange()
+        {
+        var fileinput = document.getElementById("browse");
+        var textinput = document.getElementById("filename");
+        textinput.value = fileinput.value;
+        }
+
+        $('.remove').on('click',function(){
+            $('#data').hide();
+    
+   });
+  $("p").on('click',function(){
+            $('#data').show();
+    
+  });
+        </script>
+</html>
